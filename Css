@@ -1,39 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 1.5rem;
+        }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clock With HTML-Css-Js</title>
-   
-</head>
+        body {
+            background: rgb(20, 177, 167);
+            background: linear-gradient(90deg, rgb(16, 112, 106) 0%, rgba(9, 60, 121, 1) 57%, rgba(7, 52, 95, 1) 100%, rgba(2, 0, 36, 1) 100%, rgba(0, 212, 255, 1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* min-height: 100vh; */
+            overflow: hidden;
 
-<body>
-    <div class="main-clock">
-        <div class="main1c">
-            <div class="main2c">
-                <div class="clock">
-                    <div class="hand hour" data-hour-hand></div>
-                    <div class="hand minute" data-minute-hand></div>
-                    <div class="hand second" data-second-hand></div>
-                    <div class="number number1">1</div>
-                    <div class="number number2">2</div>
-                    <div class="number number3">3</div>
-                    <div class="number number4">4</div>
-                    <div class="number number5">5</div>
-                    <div class="number number6">9</div>
-                    <div class="number number7">7</div>
-                    <div class="number number8">8</div>
-                    <div class="number number9">9</div>
-                    <div class="number number10">10</div>
-                    <div class="number number11">11</div>
-                    <div class="number number12">12</div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-</body>
+        }
 
-</html>
+        .main-clock {
+            /* margin: 30px; */
+            /* border: 2px solid red; */
+            box-shadow: rgba(393, 10, 1110, 35) 0px 5px 15px;
+            padding: 2px;
+            color: white;
+
+        }
+
+        .main1c {
+            /* border: 2px solid black; */
+            /* border: 2px solid red; */
+            margin: 20px;
+            box-shadow: rgb(107, 7, 127) 0px 20px 30px -10px;
+            padding: 32px;
+            color: white;
+
+        }
+
+        .main2c {
+            margin: 12px;
+            padding: 70px;
+            /* border: 2px solid red; */
+            color: white;
+            box-shadow: rgb(107, 7, 127) 0px 20px 30px -10px;
+            padding-left: 42px;
+
+        }
+
+        .clock {
+            width: 400px;
+            height: 400px;
+            box-shadow: rgb(107, 7, 127) 1px 1px 30px 10px;
+            background-color: rgba(108, 60, 60, 0.325);
+            border-radius: 50%;
+            position: relative;
+            border: 2px solid black;
+        }
+
+        .clock .number {
+            transition: 2s all ease-out;
+            --rotation: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transform: rotate(var(--rotation));
+        }
+
+        .clock .number1 {
+            --rotation: 30deg;
+        }
+
+        .clock .number2 {
+            --rotation: 60deg;
+        }
+
+        .clock .number3 {
+            --rotation: 90deg;
+        }
+
+        .clock .number4 {
+            --rotation: 120deg;
+        }
+
+        .clock .number5 {
+            --rotation: 150deg;
+        }
+
+        .clock .number6 {
+            --rotation: 180deg;
+        }
+
+        .clock .number7 {
+            --rotation: 210deg;
+        }
+
+        .clock .number8 {
+            --rotation: 240deg;
+        }
+
+        .clock .number9 {
+            --rotation: 270deg;
+        }
+
+        .clock .number10 {
+            --rotation: 300deg;
+        }
+
+        .clock .number11 {
+            --rotation: 330deg;
+        }
+
+        .clock .hand {
+            --rotation: 0;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            /* background-color: rgb(220, 31, 31); */
+            border: 1px solid rgb(44, 27, 127);
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+            transform-origin: bottom;
+            z-index: 10px;
+        }
+
+        .clock::after {
+            content: '';
+            position: absolute;
+            background-color: rgb(85, 0, 255);
+            z-index: 11;
+            width: 15px;
+            height: 15px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .clock .hand.second {
+            width: 3px;
+            height: 45%;
+            background-color: rgb(112, 13, 187);
+            box-shadow: rgb(107, 7, 127) 6px 0px 12px 1px;
+
+        }
+
+        .clock .hand.minute {
+            width: 7px;
+            box-shadow: rgb(7, 127, 75) 0px 0px 30px 6px;
+            height: 40%;
+            background-color: rgb(153, 198, 18);
+        }
+
+        .clock .hand.hour {
+            width: 10px;
+            height: 35%;
+            box-shadow: rgb(7, 127, 75) 0px 0px 30px 6px;
+            background-color: black;
+        }
+    </style>
